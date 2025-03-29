@@ -8,13 +8,13 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.querySelector("#root");
-    const Title = (
+    const Title = () => (
       <h3 id="clever-span" onMouseEnter={() => console.log("mouse enter")}>
         hello i am span
       </h3>
     );
 
-    const Btn = (
+    const Btn = () => (
       <button
         style={{
           backgroundColor: "tomato",
@@ -24,8 +24,13 @@
         Click me
       </button>
     );
-    const container = React.createElement("div", null, [Title, Btn]);
+    const Container = () => (
+      <>
+        <Title />
+        <Btn />
+      </>
+    );
 
-    ReactDOM.render(container, root);
+    ReactDOM.render(<Container />, root);
   </script>
 </html>
