@@ -9,15 +9,13 @@
   <script type="text/babel">
     const root = document.querySelector("#root");
 
-    function App() {
+    function MinutesToHours() {
       const [minutes, setMinutes] = React.useState(0);
       const [hours, setHours] = React.useState(0);
       const [flipped, setFlipped] = React.useState(false);
 
       return (
         <>
-          <h1>Super Converter</h1>
-
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
@@ -65,6 +63,23 @@
       );
     }
 
+    function App() {
+      const [index, setIndex] = React.useState("0");
+
+      return (
+        <>
+          <h1>Super Converter</h1>
+          <select
+            value={index}
+            onChange={(event) => setIndex(event.target.value)}
+          >
+            <option value="0">Minutes to Hours</option>
+            <option value="1">Km To Miles</option>
+          </select>
+          {index === "0" ? <MinutesToHours /> : null}
+        </>
+      );
+    }
     ReactDOM.render(<App />, root);
   </script>
 </html>
