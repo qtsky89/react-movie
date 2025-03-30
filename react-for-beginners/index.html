@@ -9,9 +9,11 @@
   <script type="text/babel">
     const root = document.querySelector("#root");
 
-    function Btn({ value, big }) {
+    function Btn({ value, big, onClick }) {
+      console.log(value, " rendered");
       return (
         <button
+          onClick={onClick}
           style={{
             backgroundColor: "tomato",
             color: "white",
@@ -26,11 +28,19 @@
       );
     }
 
+    const MemoerizedBtn = React.memo(Btn);
+
     function App() {
+      const [value, setValue] = React.useState("Save changes");
+
       return (
         <>
-          <Btn value="A Btn" big={true} />
-          <Btn value="B Btn" big={false} />
+          <Btn
+            value={value}
+            big={true}
+            onClick={() => setValue("revert change")}
+          />
+          <MemoerizedBtn value="Continue" big={false} />
         </>
       );
     }
