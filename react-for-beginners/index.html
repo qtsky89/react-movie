@@ -10,18 +10,26 @@
     const root = document.querySelector("#root");
 
     function App() {
-      const [count, setCount] = React.useState(0);
+      const [minutes, setMinutes] = React.useState(0);
+      const [hours, setHours] = React.useState(0);
 
       return (
         <>
-          <h3>Total clicks: {count}</h3>
-          <button
-            onClick={() => {
-              setCount((current) => current + 1);
+          <h1>Super Converter</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="Minutes"
+            type="number"
+            onChange={(event) => {
+              setMinutes(event.target.value);
             }}
-          >
-            Click me
-          </button>
+          />
+          <h4>You want to to convert {minutes} minutes</h4>
+
+          <label htmlFor="hours">Hours</label>
+          <input value={hours} id="hours" placeholder="Hours" type="number" />
         </>
       );
     }
