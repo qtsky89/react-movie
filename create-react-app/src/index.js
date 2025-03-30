@@ -8,7 +8,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// import "./index.css";
-// import reportWebVitals from "./reportWebVitals";
-// reportWebVitals();
