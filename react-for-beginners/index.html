@@ -17,7 +17,7 @@
           <h3>Total clicks: {count}</h3>
           <button
             onClick={() => {
-              setCount(count + 1);
+              setCount((current) => current + 1);
             }}
           >
             Click me
