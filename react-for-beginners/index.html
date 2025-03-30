@@ -11,7 +11,7 @@
   <script type="text/babel">
     const root = document.querySelector("#root");
 
-    function Btn({ value, big, onClick }) {
+    function Btn({ value, big = false, onClick }) {
       console.log(value, " rendered");
       return (
         <button
@@ -38,7 +38,7 @@
     };
     MemoerizedBtn.propTypes = {
       value: PropTypes.string,
-      big: PropTypes.bool,
+      big: PropTypes.bool.isRequired,
     };
 
     function App() {
@@ -51,7 +51,7 @@
             big={true}
             onClick={() => setValue("revert change")}
           />
-          <MemoerizedBtn value={23} big={false} />
+          <MemoerizedBtn value={23} />
         </>
       );
     }
