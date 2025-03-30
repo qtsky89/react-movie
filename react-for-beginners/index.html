@@ -16,20 +16,36 @@
       return (
         <>
           <h1>Super Converter</h1>
-          <label htmlFor="minutes">Minutes</label>
-          <input
-            value={minutes}
-            id="minutes"
-            placeholder="Minutes"
-            type="number"
-            onChange={(event) => {
-              setMinutes(event.target.value);
-            }}
-          />
-          <h4>You want to to convert {minutes} minutes</h4>
 
-          <label htmlFor="hours">Hours</label>
-          <input value={hours} id="hours" placeholder="Hours" type="number" />
+          <div>
+            <label htmlFor="minutes">Minutes</label>
+            <input
+              value={minutes}
+              id="minutes"
+              placeholder="Minutes"
+              type="number"
+              onChange={(event) => {
+                setMinutes(event.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="hours">Hours</label>
+            <input
+              value={Math.round(minutes / 60)}
+              id="hours"
+              placeholder="Hours"
+              type="number"
+              disabled
+            />
+          </div>
+          <button
+            onClick={() => {
+              setMinutes(0);
+            }}
+          >
+            Reset
+          </button>
         </>
       );
     }
