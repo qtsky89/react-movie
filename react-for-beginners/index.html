@@ -9,15 +9,28 @@
   <script type="text/babel">
     const root = document.querySelector("#root");
 
-    function Btn({ value }) {
-      return <button>{value}</button>;
+    function Btn({ value, big }) {
+      return (
+        <button
+          style={{
+            backgroundColor: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize: big ? 20 : 10,
+          }}
+        >
+          {value}
+        </button>
+      );
     }
 
     function App() {
       return (
         <>
-          <Btn value="A Btn" />
-          <Btn value="B Btn" />
+          <Btn value="A Btn" big={true} />
+          <Btn value="B Btn" big={false} />
         </>
       );
     }
