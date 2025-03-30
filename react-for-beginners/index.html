@@ -9,21 +9,23 @@
   <script type="text/babel">
     const root = document.querySelector("#root");
 
-    let count = 0;
-    const Container = () => {
-      function increaseCounter() {
-        count += 1;
-        ReactDOM.render(<Container />, root);
-      }
+    function App() {
+      const [count, setCount] = React.useState(0);
 
       return (
         <>
           <h3>Total clicks: {count}</h3>
-          <button onClick={increaseCounter}>Click me</button>
+          <button
+            onClick={() => {
+              setCount(count + 1);
+            }}
+          >
+            Click me
+          </button>
         </>
       );
-    };
+    }
 
-    ReactDOM.render(<Container />, root);
+    ReactDOM.render(<App />, root);
   </script>
 </html>
