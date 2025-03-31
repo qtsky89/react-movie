@@ -1,24 +1,59 @@
 import { useState, useEffect } from "react";
 
-function Hello() {
-  useEffect(() => {
-    console.log("created");
-    return () => console.log("destroyed");
-  }, []);
-
-  return <h1>Hello</h1>;
-}
-
 function App() {
-  const [showing, setShowing] = useState(false);
+  const [todo, setTodo] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    console.log("Updated todos:", todos);
+  }, [todos]);
 
   return (
-    <>
-      {showing ? <Hello /> : null}
-      <button onClick={() => setShowing((current) => !current)}>click</button>
-    </>
+    <div>
+      <h1>My Todos ({todos.length})</h1>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (todo === "") {
+            return;
+          }
+          setTodos((current) => {
+            return [...current, todo];
+          });
+          setTodo("");
+        }}
+      >
+        <input
+          value={todo}
+          onChange={(event) => setTodo(event.target.value)}
+          type="text"
+          placeholder="Write your to do..."
+        />
+        <button>Add To do</button>
+      </form>
+    </div>
   );
 }
+
+// function Hello() {
+//   useEffect(() => {
+//     console.log("created");
+//     return () => console.log("destroyed");
+//   }, []);
+
+//   return <h1>Hello</h1>;
+// }
+
+// function App() {
+//   const [showing, setShowing] = useState(false);
+
+//   return (
+//     <>
+//       {showing ? <Hello /> : null}
+//       <button onClick={() => setShowing((current) => !current)}>click</button>
+//     </>
+//   );
+// }
 
 // import Button from "./Button";
 // import styles from "./App.module.css";
