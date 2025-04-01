@@ -26,6 +26,7 @@ export default function Home() {
       {movies.map((m) => (
         <Movie
           key={m.id}
+          id={m.id}
           title={m.title}
           coverImage={m.medium_cover_image}
           genres={m.genres}
