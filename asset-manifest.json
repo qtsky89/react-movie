@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/react-movie/static/js/main.4bed0bea.js",
+    "index.html": "/react-movie/index.html",
+    "main.4bed0bea.js.map": "/react-movie/static/js/main.4bed0bea.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.4bed0bea.js"
+  ]
+}
