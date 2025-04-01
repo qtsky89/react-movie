@@ -20,7 +20,7 @@ export default function Movie({
           <li key={g}>{g}</li>
         ))}
       </ul>
-      <p>{summary}</p>
+      <p>{summary.length > 256 ? `${summary.slice(0, 256)}...` : summary}</p>
       <p>{description}</p>
     </div>
   );
