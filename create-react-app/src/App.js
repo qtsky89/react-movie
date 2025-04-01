@@ -22,11 +22,19 @@ export default function App() {
       <h1>Movies {movies.length}</h1>
       {loading ? <h1>Loading ...</h1> : null}
 
-      <ul>
-        {movies.map((m) => (
-          <li>{m.title}</li>
-        ))}
-      </ul>
+      {movies.map((m) => (
+        <div key={m.id}>
+          <img src={m.medium_cover_image}></img>
+          <h2>Title: {m.title}</h2>
+          <p>Summary: {m.summary}</p>
+          <p>Genre:</p>
+          <ul>
+            {m.genres.map((g) => (
+              <li key={g}>{g}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </>
   );
 }
