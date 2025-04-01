@@ -17,9 +17,10 @@ function App() {
           if (todo === "") {
             return;
           }
-          setTodos((current) => {
-            return [...current, todo];
-          });
+          setTodos((current) => [
+            ...current,
+            { key: crypto.randomUUID(), value: todo },
+          ]);
           setTodo("");
         }}
       >
@@ -34,8 +35,20 @@ function App() {
       <hr />
 
       <ul>
-        {todos.map((item, index) => (
-          <li key={index}>{item}</li>
+        {todos.map((item) => (
+          <li key={item.key}>
+            {item.value}
+            <button
+              style={{ marginLeft: "10px" }}
+              onClick={() =>
+                setTodos((current) =>
+                  current.filter((target) => target.key !== item.key)
+                )
+              }
+            >
+              X
+            </button>
+          </li>
         ))}
       </ul>
     </div>
