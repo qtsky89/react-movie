@@ -1,22 +1,23 @@
-export default function Movie({
-  id,
-  title,
-  medium_cover_image,
-  genres,
-  summary,
-}) {
+import PropTypes from "prop-types";
+
+export default function Movie({ title, coverImage, genres, summary }) {
   return (
-    <>
-      <div key={id}>
-        <h2>{title}</h2>
-        <img src={medium_cover_image}></img>
-        <ul>
-          {genres.map((g) => (
-            <li key={g}>{g}</li>
-          ))}
-        </ul>
-        <p>{summary}</p>
-      </div>
-    </>
+    <div>
+      <h2>{title}</h2>
+      <img src={coverImage} alt={title}></img>
+      <ul>
+        {genres.map((g) => (
+          <li key={g}>{g}</li>
+        ))}
+      </ul>
+      <p>{summary}</p>
+    </div>
   );
 }
+
+Movie.propTypes = {
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  converImg: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
